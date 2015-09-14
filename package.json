@@ -4,7 +4,7 @@
   "main": "index.js",
   "author": "Lin Clark",
   "scripts": {
-    "build-js": "browserify entry.js -o bundle.js",
+    "build-js": "grunt browserify",
     "start": "npm run build-js && opener index.html"
   },
   "license": "MIT",
@@ -14,6 +14,8 @@
   },
   "devDependencies": {
     "browserify": "^9.0.3",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^4.0.1",
     "opener": "^1.4.0"
   }
 }
