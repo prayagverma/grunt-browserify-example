@@ -1,5 +1,6 @@
-var $ = require('jQuery');
-var bootstrap = require('bootstrap');
+window.$ = window.jQuery = require('jquery')
+window.$ = $;
+require('bootstrap');
 var angular = require('angular');
 
 angular

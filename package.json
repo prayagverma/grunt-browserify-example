@@ -21,18 +21,5 @@
     "grunt-browserify": "^4.0.1",
     "opener": "^1.4.0",
     "parcelify": "^2.1.0"
-  },
-  "browser":{
-  	"bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js",
-  	"jquery": "./node_modules/jquery/dist/jquery.js"
-  },
-  "browserify": {
-    "transform": [
-      "browserify-shim"
-    ]
-  },
-  "browserify-shim": {
-  	"jquery"    :  "jQuery",
-  	"bootstrap" :  { "depends": [ "jquery:jQuery" ] }
   }
 }
