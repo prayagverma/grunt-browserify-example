@@ -1,4 +1,5 @@
 var browserify = require('browserify');
+var parcelify = require('parcelify');
 module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-browserify');
     var taskConfig = {
@@ -9,7 +10,10 @@ module.exports = function(grunt) {
                 dest: 'bundle.js'
             },
             options: {
-            	plugin:['parcelify']
+            	browserifyOptions: {debug:true},
+            	preBundleCB: function(b){
+            		return parcelify(b,{});
+            	}
         	}
         }
     };
