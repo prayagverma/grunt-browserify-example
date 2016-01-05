@@ -2,11 +2,27 @@ window.$ = window.jQuery = require('jquery')
 window.$ = $;
 require('bootstrap');
 var angular = require('angular');
-
 angular
-    .module('autocompleteDemo', [require('angular-material')])
+    .module('autocompleteDemo', [require('angular-material'),require('ng-dialog')])
+    .config(["ngDialogProvider", function (ngDialogProvider) {
+    ngDialogProvider.setDefaults({
+        className: "ngdialog-theme-default",
+        plain: false,
+        showClose: true,
+        closeByDocument: true,
+        closeByEscape: true,
+        appendTo: false,
+        preCloseCallback: function () {
+            console.log("default pre-close callback");
+        }
+    });
+}])
     .controller('DemoCtrl', DemoCtrl);
-function DemoCtrl ($timeout, $q) {
+function DemoCtrl ($timeout, $q, ngDialog) {
+    ngDialog.open({
+    template: '<p>my template</p>',
+    plain: true
+});
   var self = this;
   // list of `state` value/display objects
   self.states        = loadAll();
